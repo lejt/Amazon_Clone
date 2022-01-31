@@ -17,7 +17,13 @@ const userSchema = new Schema({
     required: true
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  toJSON: {
+    transform: function(doc, ret) {
+      delete ret.password;
+      return ret;
+    }
+  }
 });
 
 module.exports = mongoose.model('User', userSchema);
