@@ -3,8 +3,11 @@ import './NavBar.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from "react-router-dom"; 
+import { useStateValue } from "../../DataLayer/StateProvider";
 
 function NavBar() {
+  const [{ basket }, dispatch] = useStateValue();
+
   return (
     <nav>
       <Link to="/">
@@ -39,7 +42,7 @@ function NavBar() {
       <Link to="/checkout">
         <div className="header__optionBasket">
           <ShoppingBasketIcon />
-          <span className="header__optionLineTwo header__basketCount">0</span>
+          <span className="header__optionLineTwo header__basketCount">{basket.length}</span>
         </div>
       </Link>
       
