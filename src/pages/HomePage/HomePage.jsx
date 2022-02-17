@@ -21,7 +21,7 @@ export default function HomePage() {
                     />
                     <Product 
                         id="3453189"
-                        title="Some Product"
+                        title="Some Product1"
                         image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg"
                         price={29.99}
                         rating={5}
@@ -30,21 +30,21 @@ export default function HomePage() {
                 <div className="home__row">
                     <Product 
                         id="3453189"
-                        title="Some Product"
+                        title="Some Product2"
                         image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg"
                         price={29.99}
                         rating={5}
                     />
                     <Product 
                         id="0732416"
-                        title="Some Product"
+                        title="Some Product3"
                         image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg"
                         price={29.99}
                         rating={5}
                     />
                     <Product 
                         id="7821493"
-                        title="Some Product"
+                        title="Some Product4"
                         image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg"
                         price={29.99}
                         rating={5}

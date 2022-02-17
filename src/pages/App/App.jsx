@@ -7,6 +7,8 @@ import HomePage from "../HomePage/HomePage";
 // import OrderHistoryPage from "../OrderHistoryPage/OrderHistoryPage";
 import NavBar from "../../components/NavBar/NavBar";
 import CheckoutPage from "../CheckoutPage/CheckoutPage";
+import LoginPage from "../LoginPage/LoginPage";
+import SignupPage from "../SignUpPage/SignUpPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -15,10 +17,12 @@ function App() {
     <main className="App">
       {
         <>
-          <NavBar />
+          <NavBar user={user} setUser={setUser} />
 
           <Routes>
             <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/login" element={<LoginPage user={user} setUser={setUser} />} />
+            <Route path="/signup" element={<SignupPage user={user} setUser={setUser} />} />
             <Route path="/" element={<HomePage />} />
           </Routes>
         </>

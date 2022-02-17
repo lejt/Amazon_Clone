@@ -31,13 +31,6 @@ nav {
     height: 22px;
     background-color: #cd9042;
 }
-.header__optionLineOne {
-    font-size: 10px;
-}
-.header__optionLineTwo {
-    font-size: 13px;
-    font-weight: 800;
-}
 .header__optionBasket {
     display: flex;
     align-items: center;
@@ -56,4 +49,11 @@ nav {
     margin-left: 10px;
     margin-right: 10px;
     color: white;
+}
+.header__optionLineOne {
+    font-size: 10px;
+}
+.header__optionLineTwo {
+    font-size: 13px;
+    font-weight: 800;
 }

@@ -4,9 +4,16 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from "react-router-dom"; 
 import { useStateValue } from "../../DataLayer/StateProvider";
+import * as userService from "../../utilities/users-service";
 
-function NavBar() {
+function NavBar({ user, setUser }) {
   const [{ basket }, dispatch] = useStateValue();
+
+
+  function handleLogOut() {
+    userService.logOut();
+    setUser(null);
+  }
 
   return (
     <nav>
@@ -26,10 +33,23 @@ function NavBar() {
         <SearchIcon className="header__searchIcon" />
       </div>
       <div className="header__nav">
-        <div className="header__option">
-          <span className="header__optionLineOne">Hello Guest</span>
-          <span className="header__optionLineTwo">Sign In</span>
-        </div>
+        
+            {user ?
+            <Link to="" onClick={handleLogOut}>
+              <div className="header__option">
+                  <span className="header__optionLineOne">Hello {user.name}</span>
+                  <span className="header__optionLineTwo">Sign Out</span>
+              </div>
+            </Link>
+            :
+            <Link to="/login" >
+              <div className="header__option">
+                  <span className="header__optionLineOne">Hello Guest</span>
+                  <span className="header__optionLineTwo">Sign In</span>
+              </div>
+            </Link>
+            }
+
         <div className="header__option">
           <span className="header__optionLineOne">Return</span>
           <span className="header__optionLineTwo">& Orders</span>
