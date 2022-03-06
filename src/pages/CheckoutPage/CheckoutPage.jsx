@@ -4,7 +4,7 @@ import Subtotal from "../../components/Subtotal/Subtotal";
 import CheckoutProduct from "../../components/CheckoutProduct/CheckoutProduct";
 import { useStateValue } from "../../DataLayer/StateProvider";
 
-export default function CheckoutPage() {
+export default function CheckoutPage({user}) {
     const [{basket}, dispatch] = useStateValue();
 
     return (
@@ -16,6 +16,7 @@ export default function CheckoutPage() {
                     className="checkout__ad" 
                 />
                 <div>
+                    <h3>Hello, {user ? user.email : "Guest"}</h3> 
                     <h2 className="checkout__title">
                         Your Shopping Basket
                     </h2>

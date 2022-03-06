@@ -29,7 +29,7 @@ class SignUpForm extends Component {
       delete formData.confirm;
 
       const user = await signUp(formData);
-      console.log(user);
+      // console.log(user);
     } catch {
       // An error occurred...
       this.setState({error: 'Sign Up Failed - Try Again'});
@@ -40,11 +40,13 @@ class SignUpForm extends Component {
     const disable = this.state.password !== this.state.confirm;
     return (
       <div className="signup">
-        <img 
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png" 
-            alt="" 
-            className="signup__logo"
-        />
+        <Link to="/">
+          <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png" 
+              alt="" 
+              className="signup__logo"
+          />
+        </Link>
       <div className="signup__container">
           <h1>Create account</h1>
           <form autoComplete="off" onSubmit={this.handleSubmit}>
