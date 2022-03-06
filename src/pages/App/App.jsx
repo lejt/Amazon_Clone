@@ -31,7 +31,6 @@ function App() {
               <>
                 <NavBar user={user} setUser={setUser} />
                 <Payment />
-                <h1>I am payment route</h1>
               </>
             }>
             </Route>
