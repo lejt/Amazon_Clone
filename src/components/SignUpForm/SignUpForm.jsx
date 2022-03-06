@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import { signUp } from "../../utilities/users-service";
+import { Link } from "react-router-dom"; 
 import "./SignUpForm.css";
 
 class SignUpForm extends Component {
@@ -44,18 +45,21 @@ class SignUpForm extends Component {
             alt="" 
             className="signup__logo"
         />
-        <div className="signup__container">
-          <h1>Register</h1>
+      <div className="signup__container">
+          <h1>Create account</h1>
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
+            <label>Your name</label>
             <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
             <label>Email</label>
             <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
             <label>Password</label>
             <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-            <label>Confirm</label>
+            <label>Password again</label>
             <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-            <button type="submit" disabled={disable} className="signup__signupButton">Sign Up</button>
+            <button type="submit" disabled={disable} className="signup__signupButton">Continue</button>
+            <p>By creating an account, you agree to Amazon Clone's Conditions of Use and Privacy Notice.</p>
+            <hr />
+            <p>Already have an account? <Link to="/login">Sign in</Link></p>
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
