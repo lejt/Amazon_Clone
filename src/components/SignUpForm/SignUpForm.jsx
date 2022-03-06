@@ -29,6 +29,7 @@ class SignUpForm extends Component {
       delete formData.confirm;
 
       const user = await signUp(formData);
+      this.props.setUser(user);
       // console.log(user);
     } catch {
       // An error occurred...
