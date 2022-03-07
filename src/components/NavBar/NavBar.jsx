@@ -5,14 +5,19 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from "react-router-dom"; 
 import { useStateValue } from "../../DataLayer/StateProvider";
 import * as userService from "../../utilities/users-service";
+import { auth } from "../../firebase";
 
-function NavBar({ user, setUser }) {
-  const [{ basket }, dispatch] = useStateValue();
+function NavBar() {
+  const [{ basket, user }, dispatch] = useStateValue();
 
 
   function handleLogOut() {
-    userService.logOut();
-    setUser(null);
+    // userService.logOut();
+    // setUser(null);
+    
+    if (user) {
+      auth.signOut();
+    }
   }
 
   return (
@@ -37,7 +42,7 @@ function NavBar({ user, setUser }) {
             {user ?
             <Link to="" onClick={handleLogOut}>
               <div className="header__option">
-                  <span className="header__optionLineOne">Hello {user.name}</span>
+                  <span className="header__optionLineOne">Hello, {user.name ? user.name : "Guest"}</span>
                   <span className="header__optionLineTwo">Sign Out</span>
               </div>
             </Link>

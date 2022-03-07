@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
 // import * as usersService from '../../utilities/users-service';
 import './LoginForm.css';
-import  { Link } from 'react-router-dom';
+import  { Link, useNavigate } from 'react-router-dom';
 import { auth } from "../../firebase";
 
 export default function LoginForm() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const signIn = e => {
     e.preventDefault();
 
+    auth.signInWithEmailAndPassword(email, password)
+    .then(auth => {
+        navigate("/")
+    }
+
+    )
+    .catch(error => alert(error.message))
   }
 
   const register = e => {
@@ -22,6 +30,7 @@ export default function LoginForm() {
     })
     .catch(error => alert(error.message))
   }
+
   return (
     <div className="login">
       <Link to="/">
