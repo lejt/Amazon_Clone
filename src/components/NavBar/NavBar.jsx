@@ -14,12 +14,12 @@ function NavBar() {
   function handleLogOut() {
     // userService.logOut();
     // setUser(null);
-    
+
     if (user) {
       auth.signOut();
     }
   }
-
+ 
   return (
     <nav>
       <Link to="/">

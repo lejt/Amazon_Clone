@@ -4,8 +4,8 @@ import Subtotal from "../../components/Subtotal/Subtotal";
 import CheckoutProduct from "../../components/CheckoutProduct/CheckoutProduct";
 import { useStateValue } from "../../DataLayer/StateProvider";
 
-export default function CheckoutPage({user}) {
-    const [{basket}, dispatch] = useStateValue();
+export default function CheckoutPage() {
+    const [{basket, user}, dispatch] = useStateValue();
 
     return (
         <div className="checkout">
