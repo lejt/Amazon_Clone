@@ -1,6 +1,6 @@
 import "./Payment.css";
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useStateValue } from "../../DataLayer/StateProvider";
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
@@ -48,7 +48,11 @@ export default function Payment() {
             setError(null);
             setProcessing(false);
 
-            navigate.replace('/orders')
+            dispatch({
+                type: 'EMPTY_BASKET'
+            })
+
+            navigate('/orders', {replace: true});
         })
     }
 
