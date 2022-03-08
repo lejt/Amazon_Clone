@@ -7,6 +7,8 @@ import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
 import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "../../DataLayer/reducer";
 import axios from "../../axios";
+import { db } from "../../firebase";
+import { collection, addDoc, setDoc, doc } from "firebase/firestore";
 
 export default function Payment() {
     const [{basket, user}, dispatch] = useStateValue();
@@ -31,6 +33,7 @@ export default function Payment() {
             setClientSecret(response.data.clientSecret)
         }
         getClientSecret();
+
     }, [basket])
 
     const handleSubmit = async (e) => {
@@ -42,8 +45,25 @@ export default function Payment() {
             payment_method: {
                 card: elements.getElement(CardElement)
             }
-        }).then(({ paymentIntent }) => {
+        }).then(async ({ paymentIntent }) => {
             // paymentIntent is the payment confirmation
+
+            // console.log(db);
+            // db
+            //     .collection('users')
+            //     .doc(user?.uid)
+            //     .collection('orders')
+            //     .doc(paymentIntent.id)
+            //     .set({
+            //         basket: basket,
+            //         amount: paymentIntent.amount,
+            //         created: paymentIntent.created
+            //     })
+           
+            // collection reference
+            // const colRefUsers = collection(db, 'users')
+            // const colRefOrders = collection()
+
             setSucceeded(true);
             setError(null);
             setProcessing(false);
@@ -56,11 +76,18 @@ export default function Payment() {
         })
     }
 
-    const handleChange = e => {
+    const handleChange = async e => {
         // if event is empty, disable button
         setDisabled(e.empty);
         // if error occurs, show error message
         setError(e.error ? e.error.message : "");
+
+        await setDoc(doc(db, "cities", "LA"), {
+            name: "Los Angeles",
+            state: "CA",
+            country: "USA"
+        });
+        console.log(db)
     }
 
     return (

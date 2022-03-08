@@ -15,7 +15,7 @@
   },
   "emulators": {
     "hosting": {
-      "port": "5005"
+      "port": "5002"
     }
   },
   "functions": {

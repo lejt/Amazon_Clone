@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './LoginForm.css';
 import  { Link, useNavigate } from 'react-router-dom';
 import { auth } from "../../firebase";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 
 export default function LoginForm() {
   const navigate = useNavigate();
@@ -12,21 +13,19 @@ export default function LoginForm() {
   const signIn = e => {
     e.preventDefault();
 
-    auth.signInWithEmailAndPassword(email, password)
+    signInWithEmailAndPassword(auth, email, password)
     .then(auth => {
-        navigate("/")
-    }
-
-    )
+      const user = auth.user;
+    })
     .catch(error => alert(error.message))
   }
 
   const register = e => {
     e.preventDefault();
 
-    auth.createUserWithEmailAndPassword(email, password)
+    createUserWithEmailAndPassword(auth, email, password)
     .then((auth)=> {
-      console.log(auth);
+      console.log('You are registered');
     })
     .catch(error => alert(error.message))
   }
