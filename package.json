@@ -20,6 +20,7 @@
     "firebase": "^9.6.8",
     "firebase-tools": "^10.2.2",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
     "mongoose": "^6.1.9",
     "morgan": "^1.10.0",
     "react": "^17.0.2",

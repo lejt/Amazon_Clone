@@ -63,6 +63,19 @@ export default function Payment() {
             // collection reference
             // const colRefUsers = collection(db, 'users')
             // const colRefOrders = collection()
+            const paymentRef = doc(db, 'users', user?.uid, "orders", paymentIntent.id);
+        
+            // await setDoc(doc(db, "cities", "LA"), {
+            //     name: "Los Angeles",
+            //     state: "CA",
+            //     country: "USA"
+            // });
+
+            await setDoc(paymentRef, {
+                basket: basket,
+                amount: paymentIntent.amount,
+                created: paymentIntent.created,
+            });
 
             setSucceeded(true);
             setError(null);
@@ -81,13 +94,6 @@ export default function Payment() {
         setDisabled(e.empty);
         // if error occurs, show error message
         setError(e.error ? e.error.message : "");
-
-        await setDoc(doc(db, "cities", "LA"), {
-            name: "Los Angeles",
-            state: "CA",
-            country: "USA"
-        });
-        console.log(db)
     }
 
     return (
