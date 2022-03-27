@@ -1,6 +1,6 @@
 # Amazon Clone
 
-<img src="/public/assets/images/AmazonClone_home.jpg" width=100px height=110px overflow="hidden"> <img  src="/public/assets/images/AmazonClone_login.jpg" width=100px  height=110px overflow="hidden"> <img src="/public/assets/images/AmazonClone_cart" width=100px  height=110px overflow="hidden"> <img src="/public/assets/images/AmazonClone_checkout.jpg" width=100px  height=110px overflow="hidden"> <img src="/public/assets/images/AmazonClone_checkoutPayment.jpg" width=100px  height=110px overflow="hidden">  <img src="/public/assets/images/AmazonClone_orderHistory" width=100px  height=110px overflow="hidden">
+<img src="/public/assets/images/AmazonClone_home.jpg" width=100px height=110px overflow="hidden"> <img  src="/public/assets/images/AmazonClone_login.jpg" width=100px  height=110px overflow="hidden"> <img src="/public/assets/images/AmazonClone_cart.jpg" width=100px  height=110px overflow="hidden"> <img src="/public/assets/images/AmazonClone_checkout.jpg" width=100px  height=110px overflow="hidden"> <img src="/public/assets/images/AmazonClone_checkoutPayment.jpg" width=100px  height=110px overflow="hidden">  <img src="/public/assets/images/AmazonClone_orderHistory.jpg" width=100px  height=110px overflow="hidden">
 
 ## Table of Contents
 * [General Information](#general-information)
